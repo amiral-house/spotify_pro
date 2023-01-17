@@ -1,0 +1,10 @@
+<button
+  [type]="type"
+  (click)="onClick.emit($event)"
+  class="btn"
+  [disabled]="disabled"
+  [class.btn__primary]="kind === 'primary'"
+  [class.btn__outline]="kind === 'outline'"
+>
+  <ng-content></ng-content>
+</button>
