@@ -1,85 +1,85 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "cli": {
-    "analytics": false
-  },
-  "projects": {
-    "spotify_pro": {
-      "projectType": "application",
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "sp",
-      "architect": {
-        "build": {
-          "builder": "@ngx-env/builder:browser",
-          "options": {
-            "outputPath": "dist/",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/style.css"],
-            "scripts": [],
-            "ngxEnv": {
-              "prefix": "SPT_"
-            }
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@ngx-env/builder:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "spotify_pro:build:production"
-            },
-            "development": {
-              "browserTarget": "spotify_pro:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@ngx-env/builder:extract-i18n",
-          "options": {
-            "browserTarget": "spotify_pro:build"
-          }
-        }
-      }
-    }
-  }
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"cli": {
+		"analytics": false
+	},
+	"projects": {
+		"spotify_pro": {
+			"projectType": "application",
+			"root": "",
+			"sourceRoot": "src",
+			"prefix": "sp",
+			"architect": {
+				"build": {
+					"builder": "@ngx-env/builder:browser",
+					"options": {
+						"outputPath": "dist/",
+						"index": "src/index.html",
+						"main": "src/main.ts",
+						"polyfills": "src/polyfills.ts",
+						"tsConfig": "tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": ["src/favicon.ico", "src/assets"],
+						"styles": ["src/style.css", "src/assets/tabler-icons.min.css"],
+						"scripts": [],
+						"ngxEnv": {
+							"prefix": "SPT_"
+						}
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "@ngx-env/builder:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "spotify_pro:build:production"
+						},
+						"development": {
+							"browserTarget": "spotify_pro:build:development"
+						}
+					},
+					"defaultConfiguration": "development"
+				},
+				"extract-i18n": {
+					"builder": "@ngx-env/builder:extract-i18n",
+					"options": {
+						"browserTarget": "spotify_pro:build"
+					}
+				}
+			}
+		}
+	}
 }

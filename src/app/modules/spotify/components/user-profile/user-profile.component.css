@@ -7,4 +7,9 @@
 .name {
 	font-weight: bold;
 	font-size: 1.05rem;
+	min-width: 0;
+	flex-grow: 1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

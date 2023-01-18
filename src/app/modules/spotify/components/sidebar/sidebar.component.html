@@ -3,7 +3,10 @@
 </div>
 
 <div class="body">
-  menu
+  <a class="menu__item" routerLinkActive="menu__item__active" [routerLink]="item.url" *ngFor="let item of menu">
+    <sp-icon [size]="18" [name]="item.icon"></sp-icon>
+    <div>{{ item.label }}</div>
+  </a>
 </div>
 
 <div class="footer">

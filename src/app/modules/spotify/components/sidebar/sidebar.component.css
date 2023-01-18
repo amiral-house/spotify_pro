@@ -3,6 +3,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	height: 100%;
+	overflow: hidden;
 }
 
 .body {
@@ -12,4 +13,31 @@
 
 .footer {
 	padding: 12px;
+}
+
+.menu__item {
+	display: flex;
+	align-items: center;
+	color: var(--color-text);
+	text-decoration: none;
+	gap: 6px;
+	border-radius: var(--border-radius);
+	padding: 0 8px;
+	height: 28px;
+	font-size: 1rem;
+	font-weight: 500;
+	transition: var(--base-transition);
+}
+
+.menu__item + .menu__item {
+	margin-top: 6px;
+}
+
+.menu__item:hover {
+	background-color: var(--color-primary12);
+}
+
+.menu__item__active {
+	background-color: var(--color-primary12);
+	color: var(--color-primary);
 }

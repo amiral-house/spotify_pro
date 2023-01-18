@@ -1,0 +1,6 @@
+span {
+	font-size: var(--size);
+	color: var(--color, inherit);
+	position: relative;
+	top: 1px;
+}
