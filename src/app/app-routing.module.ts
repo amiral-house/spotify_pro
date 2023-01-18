@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthModule } from "./modules/auth/auth.module";
 import { AuthGuard } from "./modules/shared/guards/auth.guard";
+import { SpotifyModule } from "./modules/spotify/spotify.module";
 
 const routes: Routes = [
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
   {
     path: "app",
     canActivate: [AuthGuard],
-    loadChildren: () => null as any,
+    loadChildren: () => SpotifyModule,
   },
   {
     path: "auth",
@@ -21,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: "**",
-    redirectTo: "/auth",
+    redirectTo: "/app",
   },
 ];
 

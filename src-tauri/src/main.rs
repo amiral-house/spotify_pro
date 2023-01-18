@@ -19,7 +19,6 @@ fn create_auth_window(app: AppHandle, uri: String) {
         "oauth_window",
         WindowUrl::External(Url::parse(uri.as_str()).unwrap()),
     )
-    .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36")
     .on_navigation(move |url| {
         handle.emit_all("change_navigation_url", url.to_string());
 
