@@ -46,8 +46,6 @@ export class SpotifyAuthService {
           this.getTokensFromCode(code).subscribe((data) => {
             this.$tokenData.next(data);
           });
-
-          // TODO work with token data
         }
       }
     );

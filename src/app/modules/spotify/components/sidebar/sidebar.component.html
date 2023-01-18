@@ -1,2 +1,11 @@
-<sp-window-drag height="var(--safe-area-top)"></sp-window-drag>
-<sp-button kind="primary">asdasdas</sp-button>
+<div class="header">
+  <sp-window-drag height="var(--safe-area-top)"></sp-window-drag>
+</div>
+
+<div class="body">
+  menu
+</div>
+
+<div class="footer">
+  <sp-user-profile [user]="spotifyUserController.$userData | async"/>
+</div>

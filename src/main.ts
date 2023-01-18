@@ -1,3 +1,6 @@
+// MAGIC LINE - WITHOUT THIS WOULD CAUSE THE BUILD TO FAIL
+/// <reference types="spotify-api" />
+
 import { enableProdMode } from "@angular/core";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { AppModule } from "./app/app.module";

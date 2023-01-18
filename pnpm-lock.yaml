@@ -16,6 +16,7 @@ specifiers:
   '@tauri-apps/api': ^1.2.0
   '@tauri-apps/cli': ^1.2.2
   '@types/node': ^18.11.18
+  '@types/spotify-api': ^0.0.19
   rxjs: ~7.8.0
   tslib: ^2.3.0
   typescript: ~4.8.0
@@ -42,6 +43,7 @@ devDependencies:
   '@ngx-env/builder': 15.1.0
   '@tauri-apps/cli': 1.2.2
   '@types/node': 18.11.18
+  '@types/spotify-api': 0.0.19
   typescript: 4.8.4
 
 packages:
@@ -2255,6 +2257,10 @@ packages:
     resolution: {integrity: sha512-f0KEEe05NvUnat+boPTZ0dgaLZ4SfSouXUgv5noUiefG2ajgKjmETo9ZJyuqsl7dfl2aHlLJUiki6B4ZYldiiw==}
     dependencies:
       '@types/node': 18.11.18
+    dev: true
+
+  /@types/spotify-api/0.0.19:
+    resolution: {integrity: sha512-tdtxjhZs7w/dN7kpeezRe492kXzWXvilW/1ibNMoM2ymcRwKCrK5exEeBNCZhwZMtG+S2eZMaAaBsnTnqun1PQ==}
     dev: true
 
   /@types/ws/8.5.4:
