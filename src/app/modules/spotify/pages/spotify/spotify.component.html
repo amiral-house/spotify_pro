@@ -1,6 +1,10 @@
 <div class="wrapper">
-  <sp-sidebar></sp-sidebar>
   <div class="sidebar">
+    <sp-resizable>
+      <sp-sidebar></sp-sidebar>
+    </sp-resizable>
+  </div>
+  <div class="content">
     <router-outlet></router-outlet>
   </div>
 </div>

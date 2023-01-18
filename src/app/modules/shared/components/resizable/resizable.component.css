@@ -1,0 +1,30 @@
+.wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  cursor: col-resize;
+  width: 2px;
+  background: var(--color-primary24);
+  opacity: 0;
+  transition: var(--base-transition);
+}
+
+.line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -2px;
+  bottom: 0;
+  width: 6px;
+}
+
+.resize .line,
+.line:hover {
+  opacity: 1;
+}

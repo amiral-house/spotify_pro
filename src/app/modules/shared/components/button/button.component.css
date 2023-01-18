@@ -20,4 +20,5 @@
 
 .btn__primary {
   background: var(--color-primary);
+  color: var(--color-title);
 }

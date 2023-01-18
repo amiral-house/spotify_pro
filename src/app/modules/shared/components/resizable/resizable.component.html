@@ -1,0 +1,9 @@
+<div
+  class="wrapper"
+  [style.width]="width + 'px'"
+  #ref
+  [class.resize]="isResize"
+>
+  <ng-content></ng-content>
+  <div class="line" (mousedown)="onMouseDown($event)"></div>
+</div>
