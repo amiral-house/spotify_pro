@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LikedTracksComponent } from './pages/liked-tracks/liked-tracks.component';
 import { PlaylistComponent } from './pages/playlist/playlist.component';
+import { SearchComponent } from './pages/search/search.component';
 import { SpotifyComponent } from './pages/spotify/spotify.component';
 
 const routes: Routes = [
@@ -14,6 +15,11 @@ const routes: Routes = [
 				path: '',
 				pathMatch: 'full',
 				component: HomeComponent,
+			},
+			{
+				path: 'search',
+				pathMatch: 'full',
+				component: SearchComponent,
 			},
 			{
 				path: 'liked-tracks',

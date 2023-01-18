@@ -24,10 +24,5 @@ export class SidebarComponent {
 			label: 'Поиск',
 			url: '/app/search',
 		},
-		{
-			icon: 'playlist',
-			label: 'Моя медиатека',
-			url: '/app/songs',
-		},
 	];
 }
