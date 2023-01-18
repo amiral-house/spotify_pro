@@ -9,6 +9,7 @@
 [установить rust](https://www.rust-lang.org/tools/install)
 
 ```bash
+pnpm i
 pnpm tauri dev
 ```
 
