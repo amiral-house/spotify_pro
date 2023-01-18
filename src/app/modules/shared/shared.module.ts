@@ -5,6 +5,7 @@ import { WindowDragComponent } from './components/window-drag/window-drag.compon
 import { ResizableComponent } from './components/resizable/resizable.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { IconComponent } from './components/icon/icon.component';
+import { TrackItemComponent } from './components/track-item/track-item.component';
 
 const declarations = [
 	ButtonComponent,
@@ -12,6 +13,7 @@ const declarations = [
 	ResizableComponent,
 	AvatarComponent,
 	IconComponent,
+	TrackItemComponent,
 ];
 
 @NgModule({

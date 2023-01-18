@@ -20,7 +20,6 @@ export class SpotifyAuthInterceptor implements HttpInterceptor {
 			take(1),
 			switchMap((tokens) => {
 				const token = tokens?.access_token;
-				console.log('AI', tokens);
 
 				if (!token) {
 					return next.handle(req);

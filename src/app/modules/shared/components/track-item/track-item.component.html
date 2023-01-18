@@ -1,0 +1,14 @@
+<div class="wrapper">
+	<div class="left">
+		<img [src]="cover" [alt]="name" class="cover" />
+	</div>
+	<div class="center">
+		<div class="name">{{ name }}</div>
+		<div class="artists">
+			<a class="artist" *ngFor="let artist of artists" href="#">{{
+				artists
+			}}</a>
+		</div>
+	</div>
+	<div class="right"></div>
+</div>

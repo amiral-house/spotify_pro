@@ -1,14 +1,42 @@
 <div class="header">
-  <sp-window-drag height="var(--safe-area-top)"></sp-window-drag>
+	<sp-window-drag height="var(--safe-area-top)"></sp-window-drag>
 </div>
 
 <div class="body">
-  <a class="menu__item" routerLinkActive="menu__item__active" [routerLink]="item.url" *ngFor="let item of menu">
-    <sp-icon [size]="18" [name]="item.icon"></sp-icon>
-    <div>{{ item.label }}</div>
-  </a>
+	<a
+		class="menu__item"
+		routerLinkActive="menu__item__active"
+		[routerLinkActiveOptions]="{ exact: true }"
+		[routerLink]="item.url"
+		*ngFor="let item of menu"
+	>
+		<sp-icon [size]="18" [name]="item.icon"></sp-icon>
+		<div>{{ item.label }}</div>
+	</a>
+
+	<div class="separator"></div>
+
+	<a
+		class="menu__item"
+		routerLinkActive="menu__item__active"
+		routerLink="/app/liked-tracks"
+	>
+		<sp-icon [size]="18" name="heart"></sp-icon>
+		<div>Любимые треки</div>
+	</a>
+
+	<a
+		class="menu__item"
+		[routerLink]="['/app/playlist', playlist.id]"
+		routerLinkActive="menu__item__active"
+		*ngFor="
+			let playlist of (playlistsController.$playlists | async)?.items || []
+		"
+	>
+		{{ playlist.name }}
+	</a>
 </div>
 
 <div class="footer">
-  <sp-user-profile [user]="spotifyUserController.$userData | async"/>
+	<sp-user-profile [user]="spotifyUserController.$userData | async"/>
 </div>

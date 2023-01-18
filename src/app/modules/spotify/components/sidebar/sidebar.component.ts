@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PlaylistController } from '../../controllers/playlist.controller';
 import { SpotifyUserController } from '../../controllers/user.controller';
 
 @Component({
@@ -7,13 +8,16 @@ import { SpotifyUserController } from '../../controllers/user.controller';
 	styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
-	constructor(public readonly spotifyUserController: SpotifyUserController) {}
+	constructor(
+		public readonly spotifyUserController: SpotifyUserController,
+		public readonly playlistsController: PlaylistController
+	) {}
 
 	menu = [
 		{
 			icon: 'home',
 			label: 'Главная',
-			url: '/',
+			url: '/app',
 		},
 		{
 			icon: 'search',

@@ -29,6 +29,12 @@
 	transition: var(--base-transition);
 }
 
+.menu__item div {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .menu__item + .menu__item {
 	margin-top: 6px;
 }
@@ -40,4 +46,9 @@
 .menu__item__active {
 	background-color: var(--color-primary12);
 	color: var(--color-primary);
+}
+
+.separator {
+	border-bottom: 1px solid var(--color-border);
+	margin: 5px 0;
 }

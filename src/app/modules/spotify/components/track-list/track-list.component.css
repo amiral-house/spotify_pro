@@ -1,0 +1,7 @@
+.wrapper {
+	padding: 8px;
+}
+
+.item + .item {
+	margin-top: 6px;
+}
