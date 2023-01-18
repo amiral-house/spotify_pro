@@ -1,7 +1,7 @@
 <div class="wrapper">
 	<div class="item" *ngFor="let track of tracks">
 		<sp-track-item
-			[cover]="track.album.images.at(-1)?.url"
+			[cover]="track.album.images[track.album.images.length - 1]?.url"
 			[artists]="track.artists.map(artistMap)"
 			[name]="track.name"
 		></sp-track-item>
