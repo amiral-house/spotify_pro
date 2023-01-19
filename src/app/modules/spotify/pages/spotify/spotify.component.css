@@ -13,3 +13,8 @@
   flex-grow: 1;
   overflow: auto;
 }
+
+.player {
+  position: sticky;
+  top: 0;
+}

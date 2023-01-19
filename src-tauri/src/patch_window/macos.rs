@@ -1,11 +1,20 @@
 #![cfg(target_os = "macos")]
 
+use std::sync::Mutex;
+
 use cocoa::{
-    appkit::{NSToolbar, NSWindow, NSWindowStyleMask, NSWindowTitleVisibility},
-    base::{id, YES},
+    appkit::{
+        NSToolbar, NSWindow, NSWindowStyleMask, NSWindowTitleVisibility, NSWindowToolbarStyle,
+    },
+    base::{id, BOOL, NO, YES},
+    delegate,
 };
-use objc::{class, msg_send, sel, sel_impl};
-use tauri::Window;
+use objc::{
+    class, msg_send,
+    runtime::{Object, Sel},
+    sel, sel_impl,
+};
+use tauri::{Window, WindowEvent};
 
 #[allow(dead_code)]
 pub enum ToolbarThickness {
@@ -38,14 +47,34 @@ pub fn apply_toolbar(tauri_win: &Window, thickness: ToolbarThickness) {
             }
             ToolbarThickness::Thin => {}
         }
+        extern "C" fn on_enter_fullscreen(this: &Object, _cmd: Sel, _notification: id) {
+            unsafe {
+                let window: id = *this.get_ivar("window");
+                window.toolbar().setIsVisible_(NO);
+            }
+        }
+        extern "C" fn on_exit_fullscreen(this: &Object, _cmd: Sel, _notification: id) {
+            unsafe {
+                let window: id = *this.get_ivar("window");
+                window.toolbar().setIsVisible_(YES);
+            }
+        }
+        window.setDelegate_(delegate!("MyWindowDelegate", {
+            window: id = window,
+            (windowWillEnterFullScreen:) => on_enter_fullscreen as extern fn(&Object, Sel, id), // Declare function(s)
+            (windowDidExitFullScreen:) => on_exit_fullscreen as extern fn(&Object, Sel, id) // Declare function(s)
+        }));
     }
 }
 
 #[cfg(target_os = "macos")]
-unsafe fn make_toolbar(id: cocoa::base::id) {
+unsafe fn make_toolbar(id: id) -> id {
     let new_toolbar = NSToolbar::alloc(id);
+    new_toolbar.setShowsBaselineSeparator_(NO);
     new_toolbar.init_();
     id.setToolbar_(new_toolbar);
+
+    return new_toolbar;
 }
 
 #[allow(deprecated)]
@@ -71,9 +100,20 @@ trait NSVisualEffectView: Sized {
     unsafe fn setState_(self, state: NSVisualEffectState);
 }
 
+trait ChangeVisible: Sized {
+    unsafe fn setIsVisible_(self, state: BOOL);
+}
+
 #[allow(non_snake_case)]
 impl NSVisualEffectView for id {
     unsafe fn setState_(self, state: NSVisualEffectState) {
         msg_send![self, setState: state]
+    }
+}
+
+#[allow(non_snake_case)]
+impl ChangeVisible for id {
+    unsafe fn setIsVisible_(self, state: BOOL) {
+        msg_send![self, setVisible: state]
     }
 }

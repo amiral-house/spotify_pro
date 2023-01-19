@@ -11,6 +11,7 @@ import { LikedTracksComponent } from './pages/liked-tracks/liked-tracks.componen
 import { TrackListComponent } from './components/track-list/track-list.component';
 import { PlaylistComponent } from './pages/playlist/playlist.component';
 import { SearchComponent } from './pages/search/search.component';
+import { PlayerComponent } from './components/player/player.component';
 
 @NgModule({
 	declarations: [
@@ -22,6 +23,7 @@ import { SearchComponent } from './pages/search/search.component';
 		TrackListComponent,
 		PlaylistComponent,
 		SearchComponent,
+  PlayerComponent,
 	],
 	imports: [CommonModule, SpotifyRoutingModule, SharedModule],
 })
