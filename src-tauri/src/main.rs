@@ -41,7 +41,6 @@ fn main() {
                 #[cfg(target_os = "macos")]
                 {
                     window.apply_toolbar(ToolbarThickness::Medium);
-                    // window.apply_fix_blur();
                     apply_vibrancy(
                         &window,
                         NSVisualEffectMaterial::HudWindow,

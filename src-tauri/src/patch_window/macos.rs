@@ -1,11 +1,7 @@
 #![cfg(target_os = "macos")]
 
-use std::sync::Mutex;
-
 use cocoa::{
-    appkit::{
-        NSToolbar, NSWindow, NSWindowStyleMask, NSWindowTitleVisibility, NSWindowToolbarStyle,
-    },
+    appkit::{NSToolbar, NSWindow, NSWindowStyleMask, NSWindowTitleVisibility},
     base::{id, BOOL, NO, YES},
     delegate,
 };
@@ -14,11 +10,11 @@ use objc::{
     runtime::{Object, Sel},
     sel, sel_impl,
 };
-use tauri::{Window, WindowEvent};
+use tauri::Window;
 
 #[allow(dead_code)]
 pub enum ToolbarThickness {
-    Thick, // always movable because use hidden title
+    Thick,
     Medium,
     Thin,
 }
@@ -61,8 +57,8 @@ pub fn apply_toolbar(tauri_win: &Window, thickness: ToolbarThickness) {
         }
         window.setDelegate_(delegate!("MyWindowDelegate", {
             window: id = window,
-            (windowWillEnterFullScreen:) => on_enter_fullscreen as extern fn(&Object, Sel, id), // Declare function(s)
-            (windowDidExitFullScreen:) => on_exit_fullscreen as extern fn(&Object, Sel, id) // Declare function(s)
+            (windowWillEnterFullScreen:) => on_enter_fullscreen as extern fn(&Object, Sel, id),
+            (windowDidExitFullScreen:) => on_exit_fullscreen as extern fn(&Object, Sel, id)
         }));
     }
 }
@@ -75,11 +71,6 @@ unsafe fn make_toolbar(id: id) -> id {
     id.setToolbar_(new_toolbar);
 
     return new_toolbar;
-}
-
-#[allow(deprecated)]
-pub fn apply_fix_blur(window: id) {
-    unsafe {}
 }
 
 #[allow(dead_code)]
